@@ -1,0 +1,15 @@
+{
+  "name": "pairings",
+  "version": "1.0.0",
+  "description": "Provided a list of ingredients, this API will recommend the best parings of wine and beer based on those those ingredients.",
+  "scripts": {
+    "start": "nodemon server/server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.15.3",
+    "mongoose": "^4.11.0",
+    "nodemon": "^1.11.0"
+  }
+}
