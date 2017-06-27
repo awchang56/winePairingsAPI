@@ -12,9 +12,13 @@ app.listen(3000, () => {
   console.log('Server connection established. Listening on port 3000');
 });
 
-app.post('/pairing', (req, res) => {
+app.get('/', (req, res) => {
+  res.send('Hello World');
+})
 
-    let ingredients = ['pasta', 'clam'];
+app.get('/pairing', (req, res) => {
+
+    let ingredients = ['fish', 'chicken', 'onions'];
     Wine.find()
     .where('food').in(ingredients)
     .select('varietals pairingStrength')
