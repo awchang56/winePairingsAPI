@@ -1,5 +1,5 @@
 const express = require('express');
-const Wine = require('../data/schema');
+const Wine = require('./database/schema');
 const bodyParser = require('body-parser')
 const pairingData = require('../pairingData/winePairings');
 const _ = require('underscore');
@@ -14,7 +14,7 @@ app.listen(3000, () => {
 
 app.get('/', (req, res) => {
 
-    let ingredients = ['bacon'];
+    let ingredients = ['pasta', 'clam'];
     Wine.find()
     .where('food').in(ingredients)
     .select('varietals pairingStrength')
@@ -49,15 +49,20 @@ app.get('/', (req, res) => {
       }
 
       console.log('bestPair: ', pairingData.wineData[bestPair]);
-
-
-
       res.send(pairingData.wineData[bestPair]);
     });
 
 })
 
-
+app.get('/upload', (req, res) => {
+  pairingData.pairingData.forEach(food => {
+    new Wine(food).save(err => {
+      if (err) {console.log('err: ', err)}
+      else { console.log('food saved')}
+    })
+  })
+  res.send('done');
+})
 
 
 
