@@ -16,9 +16,10 @@ app.get('/', (req, res) => {
   res.send('Hello World');
 })
 
-app.get('/pairing', (req, res) => {
-
-    let ingredients = ['fish', 'chicken', 'onions'];
+app.post('/pairing', (req, res) => {
+    let ingredients = req.body.ingredients;
+    console.log('ingredients: ', ingredients)
+    // let ingredients = ['fish', 'chicken', 'onions'];
     Wine.find()
     .where('food').in(ingredients)
     .select('varietals pairingStrength')
