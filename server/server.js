@@ -3,9 +3,11 @@ const Wine = require('./database/schema');
 const bodyParser = require('body-parser')
 const pairingData = require('../pairingData/winePairings');
 const _ = require('underscore');
+const cors = require('cors');
 
 const app = express();
 
+app.use(cors());
 app.use(bodyParser.urlencoded({extended: true}));
 
 app.listen(3000, () => {
