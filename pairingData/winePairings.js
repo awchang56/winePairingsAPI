@@ -10,6 +10,7 @@ const dessert = ['port', 'sherry', 'madeira', 'vin santo', 'muscat', 'px', 'pedr
 
 
 
+
 const redMeat = ['beef', 'lamb', 'venison'];
 const curedMeat = ['salami', 'proscuitto', 'bresaola', 'bacon'];
 const pork = ['pork', 'pork roast', 'pork tenderloin', 'pork chop', 'roast', 'tenderloin'];
@@ -42,25 +43,47 @@ const vanillaAndCaramel = ['creme brulee', 'ice cream', 'caramel', 'sugar', 'van
 const chocolateAndCoffe = ['chocolate', 'coffee'];
 
 
-const pairings = [
+const pairingData = [
 {food: redMeat, varietals: {boldRed}, pairingStrength: 'strong'},
 {food: redMeat, varietals: {mediumRed}, pairingStrength: 'weak'},
 {food: curedMeat, varietals: {lightRed, sweetWhite}, pairingStrength: 'strong'},
 {food: curedMeat, varietals: {boldRed, mediumRed, rose, sparkling, dessert}, pairingStrength: 'weak'},
 {food: pork, varietals: {mediumRed}, pairingStrength: 'strong'},
-{food: pork, varietals: {boldRed, rose, sparkling}, pairingStrength: 'weak'}
+{food: pork, varietals: {boldRed, rose, sparkling}, pairingStrength: 'weak'},
 {food: poultry, varietals: {lightRed, richWhite}, pairingStrength: 'strong'},
 {food: poultry, varietals: {mediumRed, rose, lightWhite, sparkling}, pairingStrength: 'weak'}
 ];
 
 
+const wineData = {
+   boldRed : ['malbec', 'syrah', 'shiraz', 'mouvedre', 'pinotage', 'petite syrah', 'touriga nacional', 'cabernet sauvignon', 'bordeaux', 'red bordeaux', 'bordeaux blend', 'meritage'],
+ mediumRed : ['merlot', 'sangiovese', 'zinfandel', 'cabernet franc', 'tempranillo', 'nebbiolo', 'barbera', 'cotes du rhone blend'],
+ lightRed : ['pinot noir', 'grenache', 'st. laurent', 'carignan', 'counoise'],
+ rose : ['provencal rose', 'white zinfandel', 'loire valley rose', 'pinot noir rose', 'syrah rose', 'garnacha rosado', 'bandol rose', 'tempranillo rose', 'saignee method rose'],
+ richWhite : ['chardonnay', 'semillion', 'viognier', 'marsanne', 'rousanne'],
+ lightWhite : ['sauvignon blanc', 'albarino', 'pinot blanc', 'vermentino', 'melon de bourgogne', 'gargenega', 'trebbiano', 'pinot gris', 'pinot grigio'],
+ sparkling : ['champagne', 'prosecco', 'cremant', 'cava', 'metodo classico', 'sparkling wine', 'sparkling rose'],
+ sweetWhite : ['moscato', 'riesling', 'chenin blanc', 'gewurztraminer', 'gruner veltliner', 'late harvest whites', 'alsacian pinot gris'],
+ dessert : ['port', 'sherry', 'madeira', 'vin santo', 'muscat', 'px', 'pedro ximenez']
+}
 
+let categories = {  boldRed: 0,
+                    mediumRed: 0,
+                    lightRed: 0,
+                    rose: 0,
+                    richWhite: 0,
+                    lightWhite: 0,
+                    sparkling: 0,
+                    sweetWhite: 0,
+                    dessert: 0
+                  };
+Object.keys(wineData).forEach(type => {
+  categories[type] = 0;
+});
 
-const strongPairings = [
-{food: redMeat, varietals: boldRed}
-];
+// console.log(categories);
 
-const weakPairings = [
-{food: ['beef', 'lamb', 'venison'], varietals: boldRed}
-];
+module.exports.categories = categories;
+module.exports.pairingData = pairingData;
+module.exports.wineData = wineData;
 
