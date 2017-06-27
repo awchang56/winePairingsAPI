@@ -127,11 +127,6 @@ let categories = {  boldRed: 0,
                     sweetWhite: 0,
                     dessert: 0
                   };
-Object.keys(wineData).forEach(type => {
-  categories[type] = 0;
-});
-
-// console.log(categories);
 
 module.exports.categories = categories;
 module.exports.pairingData = pairingData;

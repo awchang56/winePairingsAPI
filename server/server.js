@@ -12,7 +12,7 @@ app.listen(3000, () => {
   console.log('Server connection established. Listening on port 3000');
 });
 
-app.get('/', (req, res) => {
+app.post('/pairing', (req, res) => {
 
     let ingredients = ['pasta', 'clam'];
     Wine.find()
