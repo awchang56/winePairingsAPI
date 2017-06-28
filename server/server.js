@@ -19,6 +19,10 @@ app.get('/', (req, res) => {
   res.send('Hello World');
 })
 
+app.post('/beerpairing', (req, res) => {
+  //beer code here
+})
+
 app.post('/pairing', (req, res) => {
     let ingredients = req.body.ingredients;
     console.log('ingredients: ', ingredients)

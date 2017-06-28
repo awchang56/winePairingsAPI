@@ -19,6 +19,11 @@ const wineSchema = new Schema({
   }
 });
 
+const beerSchema = new Schema({
+  //your schema here
+})
+
 const Wine = mongoose.model('Wine', wineSchema);
 
-module.exports = Wine
+module.exports = Wine;
+module.exports = Beer;
