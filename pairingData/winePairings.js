@@ -11,35 +11,35 @@ const dessert = ['port', 'sherry', 'madeira', 'vin santo', 'muscat', 'px', 'pedr
 
 
 
-const redMeat = ['beef', 'lamb', 'venison', 'steak', 'stew'];
+const redMeat = ['beef', 'lamb', 'venison', 'steak', 'stew', 'steaks'];
 const curedMeat = ['salami', 'proscuitto', 'bresaola', 'bacon'];
 const pork = ['pork', 'pork roast', 'pork tenderloin', 'pork chop', 'roast', 'tenderloin'];
-const poultry = ['chicken', 'duck', 'turkey', 'quail'];
-const mollusk = ['oyster', 'mussel', 'clam'];
-const fish = ['tuna', 'cod', 'trout', 'bass', 'sashimi', 'salmon', 'tilapia', 'catfish', 'perch', 'halibut', 'branzino'];
-const shellfish = ['crab', 'king crab', 'lobster', 'shrimp', 'langoustine', 'prawn'];
-const softCheeseAndCream = ['brie', 'marscapone', 'creme fraiche'];
-const pungentCheese = ['bleu', 'gorgonzola', 'stilton', 'roquefort'];
-const hardCheese = ['cheddar', 'pecorino', 'manchego', 'asiago', 'parmesean'];
-const alliums = ['onion', 'shallot', 'garlic', 'scallions', 'green onion'];
-const greenVegetables = ['green beans', 'kale', 'lettuce', 'spinach', 'endives', 'arugla', 'cabbage', 'napa cabbage', 'bok choy', 'zucchini', 'broccoli'];
-const rootVegetables = ['turnip', 'butternut', 'pumpkin', 'delicata', 'carrot', 'radish', 'daikon'];
-const nightshades = ['tomato', 'eggplant', 'bell pepper'];
-const funghi = ['crimini', 'maitake', 'chanterelle', 'mushroom', 'portabello', 'enoki', 'king oyster', 'oyster'];
+const poultry = ['chicken', 'chickens', 'drumstick', 'drumsticks', 'duck', 'ducks', 'turkey', 'turkeys', 'quail', 'quails'];
+const mollusk = ['oyster', 'oysters', 'mussels', 'clams', 'mussel', 'clam'];
+const fish = ['tuna', 'cod', 'trout', 'bass', 'sashimi', 'salmon', 'tilapia', 'catfish', 'perch', 'halibut', 'branzino', 'fish'];
+const shellfish = ['crab', 'crabs', 'king crab', 'king crab legs', 'lobster', 'lobsters', 'shrimp', 'langoustine', 'prawn', 'prawns'];
+const softCheeseAndCream = ['brie', 'marscapone', 'creme fraiche', 'milk', 'creme', 'cream', 'yogurt', 'butter', 'sour cream'];
+const pungentCheese = ['bleu', 'gorgonzola', 'stilton', 'roquefort', 'feta'];
+const hardCheese = ['cheddar', 'pecorino', 'manchego', 'asiago', 'parmesean', 'mozarella'];
+const alliums = ['onion', 'onions', 'shallot', 'shallots', 'garlic', 'scallions', 'scallion', 'green onion', 'green onions', 'spring onions'];
+const greenVegetables = ['green beans', 'kale', 'lettuce', 'spinach', 'endives', 'arugla', 'cabbage', 'napa cabbage', 'bok choy', 'zucchini', 'zucchinis', 'broccoli', 'cucumber', 'cucumbers', 'cauliflower'];
+const rootVegetables = ['turnip', 'turnips', 'butternut', 'pumpkin', 'pumpkins', 'delicata', 'carrot', 'carrots', 'radish', 'radishes', 'daikon'];
+const nightshades = ['tomato', 'tomatoes', 'eggplant', 'eggplants', 'bell peppers', 'bell pepper'];
+const funghi = ['crimini', 'maitake', 'chanterelle', 'chanterelles', 'mushroom', 'mushrooms', 'portabello', 'portabellos', 'enoki', 'enokis', 'king oyster', 'oyster'];
 const nutsAndSeeds = ['peanuts', 'almonds', 'pecans', 'cashews', 'sesame'];
 const beansAndPeas = ['lentils', 'navy', 'pinto', 'chickpeas'];
 const blackPepper = ['black pepper', 'pepper'];
-const redPepper = ['ancho', 'aleppo', 'chipotle', 'chili'];
-const hotSpicy = ['hot sauce', 'habanero', 'sichuan', 'jalapeno', 'serrano', 'ghost pepper'];
+const redPepper = ['ancho', 'aleppo', 'chipotle', 'chili', 'chilis'];
+const hotSpicy = ['taco', 'tacos', 'hot sauce', 'habanero', 'habaneros', 'sichuan', 'jalapeno', 'jalapenos', 'serranos', 'serrano', 'ghost peppers', 'ghost pepper'];
 const herbs = ['thyme', 'oregano', 'basil', 'tarragon'];
-const bakingSpices = ['cinnamon', 'clove', 'allspice', 'mace'];
+const bakingSpices = ['cinnamon', 'clove', 'cloves', 'allspice', 'mace'];
 const exoticAndAromaticSpices = ['anise', 'star anise', 'tumeric', 'saffron', 'fennel', 'ginger'];
-const whiteStarches = ['flour', 'white rice', 'pasta', 'bread', 'tortilla'];
+const whiteStarches = ['flour', 'white rice', 'pasta', 'bread', 'tortilla', 'tortillas'];
 const wholeWheatGrains = ['quinoa', 'farro', 'brown rice'];
-const sweetStarchyVegetables = ['sweet potato', 'yucca', 'taro'];
-const potato = ['potato'];
-const fruitAndBerries = ['strawberry', 'apple', 'orange', 'peach', 'grape', 'apricot', 'nectarine', 'banana', 'pineapple'];
-const vanillaAndCaramel = ['creme brulee', 'ice cream', 'caramel', 'sugar', 'vanilla'];
+const sweetStarchyVegetables = ['sweet potato', 'sweet potatoes', 'yucca', 'taro'];
+const potato = ['potato', 'potatoes'];
+const fruitAndBerries = ['strawberry', 'strawberries', 'apples', 'apple', 'orange', 'oranges', 'peach', 'peaches', 'grape', 'grapes', 'apricot', 'apricots', 'nectarine', 'nectarines', 'bananas', 'banana', 'pineapples', 'pineapple'];
+const vanillaAndCaramel = ['creme brulee', 'ice cream', 'caramel', 'sugar', 'molasses', 'vanilla'];
 const chocolateAndCoffee = ['chocolate', 'coffee'];
 
 
