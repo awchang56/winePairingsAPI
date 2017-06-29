@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/pairings');
 
+
 const db = mongoose.connection;
 
 db.on('error', console.error.bind(console, 'connection error: '));
@@ -20,10 +21,13 @@ const wineSchema = new Schema({
 });
 
 const beerSchema = new Schema({
-  //your schema here
+  food: Array,
+  varietals: Object,
 })
 
 const Wine = mongoose.model('Wine', wineSchema);
+const Beer = mongoose.model('Beer', beerSchema);
 
-module.exports = Wine;
-module.exports = Beer;
+
+module.exports.Wine = Wine;
+module.exports.Beer = Beer;
