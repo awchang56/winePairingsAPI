@@ -1,12 +1,12 @@
-const boldRed = ['malbec', 'syrah', 'shiraz', 'mouvedre', 'pinotage', 'petite syrah', 'touriga nacional', 'cabernet sauvignon', 'bordeaux', 'red bordeaux', 'bordeaux blend', 'meritage'];
+const boldRed = ['malbec', 'syrah', 'shiraz', 'mouvedre', 'pinotage', 'petite syrah', 'touriga nacional', 'cabernet sauvignon', 'bordeaux', 'meritage'];
 const mediumRed = ['merlot', 'sangiovese', 'zinfandel', 'cabernet franc', 'tempranillo', 'nebbiolo', 'barbera', 'cotes du rhone blend'];
 const lightRed = ['pinot noir', 'grenache', 'st. laurent', 'carignan', 'counoise'];
 const rose = ['provencal rose', 'white zinfandel', 'loire valley rose', 'pinot noir rose', 'syrah rose', 'garnacha rosado', 'bandol rose', 'tempranillo rose', 'saignee method rose'];
 const richWhite = ['chardonnay', 'semillion', 'viognier', 'marsanne', 'rousanne'];
 const lightWhite = ['sauvignon blanc', 'albarino', 'pinot blanc', 'vermentino', 'melon de bourgogne', 'gargenega', 'trebbiano', 'pinot gris', 'pinot grigio'];
 const sparkling = ['champagne', 'prosecco', 'cremant', 'cava', 'metodo classico', 'sparkling wine', 'sparkling rose'];
-const sweetWhite = ['moscato', 'riesling', 'chenin blanc', 'gewurztraminer', 'gruner veltliner', 'late harvest whites', 'alsacian pinot gris'];
-const dessert = ['port', 'sherry', 'madeira', 'vin santo', 'muscat', 'px', 'pedro ximenez'];
+const sweetWhite = ['moscato', 'riesling', 'chenin blanc', 'gewurztraminer', 'gruner veltliner'];
+const dessert = ['port', 'sherry', 'madeira', 'vin santo', 'muscat', 'pedro ximenez'];
 
 
 
