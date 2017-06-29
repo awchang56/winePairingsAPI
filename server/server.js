@@ -12,8 +12,8 @@ app.use(cors());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json())
 
-app.listen(4000, () => {
-  console.log('Server connection established. Listening on port 4000');
+app.listen(3000, () => {
+  console.log('Server connection established. Listening on port 3000');
 });
 
 app.get('/', (req, res) => {
