@@ -5,6 +5,7 @@ const pairingData = require('../pairingData/winePairings');
 const pairingDataBeer = require('../pairingData/beerPairings');
 const _ = require('underscore');
 const cors = require('cors');
+const countVarietals = require('./helpers.js');
 
 const app = express();
 
@@ -18,63 +19,26 @@ app.listen(3000, () => {
 
 app.get('/', (req, res) => {
   res.send('Hello World');
-})
+});
 
 app.post('/beerpairing', (req, res) => {
-  let ingredients = req.body.ingredients;
-  console.log('ingredients: ', ingredients);
-  ingredients = ingredients.map(food => {
+  let ingredients = req.body.ingredients.map(food => {
     return food.replace(/[^\w\s]/gi, '')
   });
   Beverage.Beer.find()
   .where('food').in(ingredients)
-  // .select('varietals')
   .then(possiblePairing => {
     let varietalCount = Object.assign({}, pairingDataBeer.categories);
-
-    const countVarietals = arr => {
-      return _.chain(arr)
-        .pluck('varietals')
-        .map(category => {
-            return Object.keys(category)
-          })
-        .flatten()
-        .each(category => {
-            varietalCount[category]++;
-          })
-    }
-
-    countVarietals(possiblePairing);
-
-    let bestPair = '';
-      let maxValue = 0;
-      for (key in varietalCount) {
-        if (varietalCount[key] > maxValue) {
-          bestPair = key;
-          maxValue = varietalCount[key];
-        }
-      }
-    console.log('varietalCount: ', varietalCount);
-
+    countVarietals.countVarietalsBeer(possiblePairing, varietalCount);
+    let bestPair = countVarietals.bestPairing(varietalCount);
     let randomInt0And1 = Math.round(Math.random());
-
     let bestBeerPair = pairingDataBeer.beerData[bestPair][randomInt0And1];
     res.send(pairingDataBeer.beerId[bestBeerPair].toString());
-
-    // let beerIds = Object.assign({}, pairingDataBeer.beerId);
-    // possiblePairing = possiblePairing[0].varietals
-    // for (let key in possiblePairing) {
-    //   possiblePairing = possiblePairing[key];
-    // }
-    // possiblePairing = possiblePairing[Math.floor(Math.random() * 2)]
-    // let id = beerIds[possiblePairing];
-    // res.send(id.toString());
-  })
-})
+  });
+});
 
 app.post('/pairing', (req, res) => {
-    let ingredients = req.body.ingredients;
-    ingredients = ingredients.map(food => {
+    let ingredients = req.body.ingredients.map(food => {
       return food.replace(/[^\w\s]/gi, '')
     });
     Beverage.Wine.find()
@@ -82,37 +46,12 @@ app.post('/pairing', (req, res) => {
     .select('varietals pairingStrength')
     .then(possiblePairings => {
       let varietalCount = Object.assign({}, pairingData.categories);
-      const countVarietals = (arr, pairingStrength, weight) => {
-        return _.chain(arr)
-          .filter(pairings => {
-            return pairings.pairingStrength === pairingStrength;
-          })
-          .pluck('varietals')
-          .map(category => {
-            return Object.keys(category)
-          })
-          .flatten()
-          .each(category => {
-            varietalCount[category] += weight;
-          })
-      }
-      countVarietals(possiblePairings, 'strong', 2);
-      countVarietals(possiblePairings, 'weak', 1);
-
-
-      let bestPair = '';
-      let maxValue = 0;
-      for (key in varietalCount) {
-        if (varietalCount[key] > maxValue) {
-          bestPair = key;
-          maxValue = varietalCount[key];
-        }
-      }
-
+      countVarietals.countVarietalsWine(possiblePairings, varietalCount, 'strong', 2);
+      countVarietals.countVarietalsWine(possiblePairings, varietalCount, 'weak', 1);
+      let bestPair = countVarietals.bestPairing(varietalCount);
       res.send(pairingData.wineData[bestPair]);
     });
-
-})
+});
 
 app.get('/upload', (req, res) => {
   pairingData.pairingData.forEach(food => {
@@ -120,17 +59,16 @@ app.get('/upload', (req, res) => {
       if (err) {console.log('err: ', err)}
       else { console.log('food saved')}
     })
-  })
+  });
 
   pairingDataBeer.pairingDataBeer.forEach(food => {
     new Beverage.Beer(food).save(err => {
       if (err) {console.log('err: ', err)}
       else { console.log('food saved')}
     })
-  })
-
+  });
   res.send('done');
-})
+});
 
 
 
