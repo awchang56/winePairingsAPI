@@ -73,7 +73,7 @@ app.post('/beerpairing', (req, res) => {
 })
 
 app.post('/pairing', (req, res) => {
-    const ingredients = req.body.ingredients;
+    let ingredients = req.body.ingredients;
     ingredients = ingredients.map(food => {
       return food.replace(/[^\w\s]/gi, '')
     });
