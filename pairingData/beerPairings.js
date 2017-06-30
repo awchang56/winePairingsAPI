@@ -117,7 +117,7 @@ const pairingDataBeer = [
 ];
 
 let categories = {
-                    cleanAndCrisp: 0,
+                    cleanAndCrisp: 1,
                     maltyAndSweet: 0,
                     fruityAndSpicy: 0,
                     sourTartAndFunky: 0,
