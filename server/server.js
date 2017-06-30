@@ -22,11 +22,11 @@ app.get('/', (req, res) => {
 
 app.post('/beerpairing', (req, res) => {
   let ingredients = req.body.ingredients;
+  console.log('ingredients: ', ingredients);
   Beverage.Beer.find()
   .where('food').in(ingredients)
   // .select('varietals')
   .then(possiblePairing => {
-    console.log('possiblePairing: ', possiblePairing)
     let varietalCount = Object.assign({}, pairingDataBeer.categories);
 
     const countVarietals = arr => {
@@ -52,7 +52,6 @@ app.post('/beerpairing', (req, res) => {
         }
       }
     console.log('varietalCount: ', varietalCount);
-    console.log('bestBeerPair: ', pairingDataBeer.beerData[bestPair]);
 
     let randomInt0And1 = Math.round(Math.random());
 
@@ -77,7 +76,6 @@ app.post('/pairing', (req, res) => {
     .select('varietals pairingStrength')
     .then(possiblePairings => {
       let varietalCount = Object.assign({}, pairingData.categories);
-      console.log("TEST");
       const countVarietals = (arr, pairingStrength, weight) => {
         return _.chain(arr)
           .filter(pairings => {
@@ -105,7 +103,6 @@ app.post('/pairing', (req, res) => {
         }
       }
 
-      console.log('bestPair: ', pairingData.wineData[bestPair]);
       res.send(pairingData.wineData[bestPair]);
     });
 
