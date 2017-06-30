@@ -12,8 +12,8 @@ app.use(cors());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json())
 
-app.listen(3000, () => {
-  console.log('Server connection established. Listening on port 3000');
+app.listen(3001, () => {
+  console.log('Server connection established. Listening on port 3001');
 });
 
 app.get('/', (req, res) => {
@@ -24,16 +24,49 @@ app.post('/beerpairing', (req, res) => {
   let ingredients = req.body.ingredients;
   Beverage.Beer.find()
   .where('food').in(ingredients)
-  .select('varietals')
+  // .select('varietals')
   .then(possiblePairing => {
-    let beerIds = Object.assign({}, pairingDataBeer.beerId);
-    possiblePairing = possiblePairing[0].varietals
-    for (let key in possiblePairing) {
-      possiblePairing = possiblePairing[key];
+    console.log('possiblePairing: ', possiblePairing)
+    let varietalCount = Object.assign({}, pairingDataBeer.categories);
+
+    const countVarietals = arr => {
+      return _.chain(arr)
+        .pluck('varietals')
+        .map(category => {
+            return Object.keys(category)
+          })
+        .flatten()
+        .each(category => {
+            varietalCount[category]++;
+          })
     }
-    possiblePairing = possiblePairing[Math.floor(Math.random() * 2)]
-    let id = beerIds[possiblePairing];
-    res.send(id.toString());
+
+    countVarietals(possiblePairing);
+
+    let bestPair = '';
+      let maxValue = 0;
+      for (key in varietalCount) {
+        if (varietalCount[key] > maxValue) {
+          bestPair = key;
+          maxValue = varietalCount[key];
+        }
+      }
+    console.log('varietalCount: ', varietalCount);
+    console.log('bestBeerPair: ', pairingDataBeer.beerData[bestPair]);
+
+    let randomInt0And1 = Math.round(Math.random());
+
+    let bestBeerPair = pairingDataBeer.beerData[bestPair][randomInt0And1];
+    res.send(pairingDataBeer.beerId[bestBeerPair].toString());
+
+    // let beerIds = Object.assign({}, pairingDataBeer.beerId);
+    // possiblePairing = possiblePairing[0].varietals
+    // for (let key in possiblePairing) {
+    //   possiblePairing = possiblePairing[key];
+    // }
+    // possiblePairing = possiblePairing[Math.floor(Math.random() * 2)]
+    // let id = beerIds[possiblePairing];
+    // res.send(id.toString());
   })
 })
 

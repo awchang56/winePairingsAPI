@@ -115,6 +115,23 @@ const pairingDataBeer = [
 {food: potato, varietals: {variess}},
 {food: alliums, varietals: {darkAndRoasty}},
 ];
-module.exports.beerId = beerId
+
+let categories = {
+                    cleanAndCrisp: 0,
+                    maltyAndSweet: 0,
+                    fruityAndSpicy: 0,
+                    sourTartAndFunky: 0,
+                    hoppyAndBitter: 0,
+                    hoppyAndBitterDarkAndRoasty: 0,
+                    darkAndRoasty: 0,
+                    varies: 0,
+                    maltyAndSweetDarkAndRoasty: 0,
+                    hoppyAndBitterFruityAndSweet: 0,
+                    variess: 0
+                  };
+
+
+module.exports.categories = categories;
+module.exports.beerId = beerId;
 module.exports.pairingDataBeer = pairingDataBeer;
 module.exports.beerData = beerData;
