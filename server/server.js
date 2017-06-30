@@ -23,6 +23,9 @@ app.get('/', (req, res) => {
 app.post('/beerpairing', (req, res) => {
   let ingredients = req.body.ingredients;
   console.log('ingredients: ', ingredients);
+  ingredients = ingredients.map(food => {
+    return food.replace(/[^\w\s]/gi, '')
+  });
   Beverage.Beer.find()
   .where('food').in(ingredients)
   // .select('varietals')
@@ -71,6 +74,9 @@ app.post('/beerpairing', (req, res) => {
 
 app.post('/pairing', (req, res) => {
     const ingredients = req.body.ingredients;
+    ingredients = ingredients.map(food => {
+      return food.replace(/[^\w\s]/gi, '')
+    });
     Beverage.Wine.find()
     .where('food').in(ingredients)
     .select('varietals pairingStrength')
