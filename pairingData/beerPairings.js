@@ -39,7 +39,7 @@ const whiteStarches = ['flour', 'white rice', 'pasta', 'bread', 'tortilla', 'tor
 const wholeWheatGrains = ['quinoa', 'farro', 'brown rice'];
 const sweetStarchyVegetables = ['sweet potato', 'sweet potatoes', 'yucca', 'taro'];
 const potato = ['potato', 'potatoes'];
-const fruitAndBerries = ['strawberry', 'strawberries', 'apples', 'apple', 'orange', 'oranges', 'peach', 'peaches', 'grape', 'grapes', 'apricot', 'apricots', 'nectarine', 'nectarines', 'bananas', 'banana', 'pineapples', 'pineapple'];
+const fruitAndBerries = ['strawberry', 'strawberries', 'apples', 'apple', 'orange', 'oranges', 'peach', 'peaches', 'grape', 'grapes', 'apricot', 'apricots', 'nectarine', 'nectarines', 'bananas', 'banana', 'pineapples', 'pineapple', 'lime', 'limes', 'grapefruit', 'grapefruits'];
 const vanillaAndCaramel = ['creme brulee', 'ice cream', 'caramel', 'sugar', 'molasses', 'vanilla'];
 const chocolateAndCoffee = ['chocolate', 'coffee'];
 
